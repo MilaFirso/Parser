@@ -31,7 +31,7 @@ private:
     void printMap(const std::string currentSection, const std::string key);
 
 public:
-    Parser(const std::string& filename);
+    explicit Parser(const std::string& filename);
 
     template <class T>
     T getValue(const std::string currentSection, const std::string key)
@@ -55,19 +55,10 @@ public:
             std::cout << "Warning. Type of this value double or float converted to ini !!!" << std::endl;
         }
 
-        try
-        {
+        
             tmpIniDataInt_ = std::stoi(tmpIniDataString_);
-        }
-        catch (const std::out_of_range& ex)
-        {
-            throw ex;
-        }
-        catch (const std::invalid_argument& ex)
-        {
-            throw ex;
-        }
-        return tmpIniDataInt_;
+        
+           return tmpIniDataInt_;
     }
 
     template <>
