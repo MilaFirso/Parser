@@ -35,7 +35,7 @@ Parser::Parser(const std::string& filename) : filename_{ filename }
 
                     if (pos != std::string::npos)
                     {
-                        value_ = value_.substr(0, pos);
+                        value_ = value_.erase(pos);
                     }
                     fileData_[currentSection_][key_] = value_;
                 }
